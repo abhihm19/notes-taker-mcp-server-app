@@ -16,7 +16,7 @@ public class NotesApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(NotesApplication.class, args);
-		
+
 		// Keep the application running for MCP STDIO communication
 		try {
 			new CountDownLatch(1).await();
@@ -26,7 +26,7 @@ public class NotesApplication {
 	}
 
 	@Bean
-	List<ToolCallback> danTools(NotesService notesService) {
+	List<ToolCallback> notesToolCallbacks(NotesService notesService) {
 		return List.of(ToolCallbacks.from(notesService));
 	}
 }
